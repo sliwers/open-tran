@@ -1,0 +1,58 @@
+<!--
+    <h1>Traduir arxius sencers</h1>
+    <p>
+      Pots enviar un arxiu .po perquè sigui traduit al servidor (aquest 
+      servei es basa en el 
+      <em><a href="http://translate.sourceforge.net">translate toolkit</a></em>
+      i tamb&eacute; funciona amb alguns altres formats suportats per aquesta 
+      llibreria).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Arxiu: <input type="file" name="file"/><br/>
+      <input type="submit" value="Tradueix"/>
+    </form>
+-->
+    <h1>Traduir frases individuals</h1>
+    <ol>
+      <li>
+        Pots afegir un motor de cerca a qualsevol navegador modern.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        No es cap secret que el formulari de cerca va a una URL amb aquest format: 
+	<a href="/suggest/search engine">http://ca.open-tran.eu/suggest/<em>frase a buscar</em></a>.
+      </li>
+      <li>
+        Usuaris del Firefox poden afegir una adre&ccedil;a d'inter&egrave;s amb una paraula 
+        clau. Per fer aix&oacute;, s'ha d'obrir la finestra "Organitza les adreces 
+        d'inter&egrave;s" des del menú "Adreces d'inter&egrave;s" i afegir-n'hi una de nova com aquesta:<br/><br/>
+        <img src="images/addbookmark-ca.png" alt="screenshot"/><br/><br/>
+        Ara, introduint una URL del tipus <code>tran frase</code> automàticament s'enviarà una consulta.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Pots utilitzar aquest servei amb qualsevol programa capa&ccedil; d'executar 
+      un proc&eacute;s remot per mitj&agrave; del protocol <a href="http://www.xmlrpc.com">XML RPC</a>.  
+      Has d'utilitzar el m&egrave;tode <code>suggest</code>, que accepta dos arguments: una frase que es 
+      vol traduir i el codi de la llengua a la que es vol fer.
+    </p>
+    <p>
+      Amb Python, pots fer-ho d'aquesta manera:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "ca" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      D'aquí poc miraré de penjar un editor de fitxers .po
+      senzill que dóni la possibilitat d'obtenir suggeriments des del
+      servidor utilitzant aquest mecanisme.
+    </p>

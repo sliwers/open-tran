@@ -1,0 +1,61 @@
+<!--
+<h1>Kokonaisten tiedostojen k&auml;&auml;nt&auml;minen</h1>
+<p>
+Voit l&auml;hett&auml;&auml; .po-tiedoston
+k&auml;&auml;nnett&auml;v&auml;ksi palvelimelle.
+Palvelu
+käyttää <a href="http://translate.sourceforge.net/">Translate Toolkitia</a>
+ja ymm&auml;rt&auml;&auml; siten monia muitakin muotoja.
+</p>
+
+<form enctype="multipart/form-data" action="suggest" method="post">
+  Tiedosto: <input name="file" type="file" /><br />
+  <input value="K&auml;&auml;nn&auml;" type="submit" /> 
+</form>
+-->
+<h1>Yksitt&auml;isten fraasien k&auml;&auml;nt&auml;minen</h1>
+
+<ol>
+  <li>Voit lis&auml;t&auml; hakukoneen (<a href="http://fi.open-tran.eu/suggest/search%20engine">katso
+ehdotetut k&auml;&auml;nn&ouml;kset</a>) mihin
+tahansa nykyaikaiseen webselaimeen.
+	<br/>
+	<img src="/images/open-search.png" alt="Vapaa haku"/>
+  </li>
+  <li>Ei ole salaisuus, ett&auml; hakusivu menee seuraavanlaiseen osoitteeseen:&nbsp;<a href="http://fi.open-tran.eu/suggest/search%20engine">http://fi.open-tran.eu/suggest/search
+engine</a>. </li>
+
+  <li>Firefoxin k&auml;ytt&auml;j&auml;t voivat lis&auml;t&auml;
+kirjanmerkin avainsanalla varustettuna avaamalla Kirjanmerkit-valikosta Muokkaa kirjanmerkkej&auml; -ikkunan ja&nbsp;lis&auml;&auml;m&auml;ll&auml; uuden kirjanmerkin seuraavasti:<br />
+    <br />
+    <img alt="Ruutukaappaus" src="images/addbookmark-fi.png" /><br />
+    <br />
+
+    Voit sitten hakea fraasia kirjoittamalla osoiteriville <code>tran fraasi</code>.
+    </li>
+</ol>
+
+<h1>XML RPC</h1>
+<p>Palvelua voi k&auml;ytt&auml;&auml;
+mill&auml; tahansa ohjelmalla, joka pystyy
+suorittamaan et&auml;kutsun <a href="http://www.xmlrpc.com/">XML RPC</a>-yhteysk&auml;yt&auml;nn&ouml;ll&auml;. Sinun tulisi
+k&auml;ytt&auml;&auml; <code>suggest</code>-komentoa,
+jolla on 2 parametria: k&auml;&auml;nnett&auml;v&auml; fraasi ja
+kohdekielen koodi.</p>
+<p>
+Python-kielell&auml; tehtyn&auml; esimerkiksi seuraavasti:
+</p>
+
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "fi"):
+          print sugg
+    </pre>
+
+<p>Yrit&auml;n
+l&auml;hett&auml;&auml; pian yksinkertaisen
+.po-muokkaimen, joka osaa noutaa ehdotukset
+palvelimelta t&auml;ll&auml; tapaa. 
+</p>

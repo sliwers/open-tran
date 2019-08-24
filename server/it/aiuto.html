@@ -1,0 +1,57 @@
+<!--
+    <h1>Traduzione di file interi</h1>
+    <p>
+      Puoi inviare un file .po al server per la traduzione (il
+      servizio è basato su 
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      ed interpreta molti altri formati supportati da questa libreria).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Traduci"/>
+    </form>
+-->
+    <h1>Traduzione di frasi singole</h1>
+    <ol>
+      <li>
+        Puoi aggiungere un motore di ricerca, in inglese si dice "search engine"
+        (<a href="/suggest/search engine">vedi la traduzione suggerita</a>), a qualsiasi browser web moderno.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Naturalmente non è un segreto che il modulo di ricerca utilizzi un URL nel seguente formato:
+	<a href="/suggest/search engine">http://it.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Se sei un utente di Firefox poi aggiungere un segnalibro con parola chiave. Per
+	poterlo fare devi aprire la finestra "Gestione segnalibri..." dal menu
+        "Segnalibri" e premere il pulsante "Nuovo segnalibro". Poi compila i campi come segue:<br/><br/>
+        <img src="images/addbookmark-it.png" alt="Coma aggiungere un segnalibro"/><br/><br/>
+        D'ora in poi digitando <code>tran frase_da_tradurre</code> nella barra dell'indirizzo
+        inizierà automaticamente la ricerca nella nostra banca dati delle traduzioni.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Puoi usare questo servizio con qualsiasi programma che sia in grado di effettuare una
+      chiamata a procedura remota attraverso il protocollo <a href="http://www.xmlrpc.com">XML RPC</a>.
+      Dovresti utilizzare il metodo <code>suggest</code>, che prende due argomenti: una frase da tradurre ed il
+      codice di due lettere della lingua nella quale vuoi tradurre (ovvero "it" nel caso dell'italiano).
+    </p>
+    <p>
+      In Python, ad esempio, si può fare in questo modo:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "it"):
+          print sugg
+    </pre>
+    <p>
+      Proverò ad inviare prossimamente un semplice editor di file .po che sia in grado
+      di ottenere i suggerimenti di traduzione dal server attraverso questo meccanismo.
+    </p>

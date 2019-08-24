@@ -1,0 +1,51 @@
+<!--
+<h1>Pierakład cełych fajłaŭ</h1>
+<p>
+Pry dapamozie formy nižej možna dasłać na server fajł .po kab pierakłaści (servis abapirajecca na <a href="http://translate.sourceforge.net">translate toolkit</a>) i absłuhoŭvaje ŭsie farmaty, jakija hetaja biblijateka padtrymvaje.
+</p>
+<form enctype="multipart/form-data" action="suggest" method="post">
+  Fajł: <input type="file" name="file"/><br/>
+  <input type="submit" value="Pierakładzi"/>
+</form>
+-->
+<h1>Pierakład paasobnych fraz</h1>
+<ol>
+  <li>
+    U sučasnych hartačoch isnuje mahčymaść dadać pošuk 
+    (pravier <a href="/suggest/search%20engine">prapanavananyja pierakłady</a>)
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+  </li>
+  <li>
+    Nie sakret, što akno pošuku prosta ŭvodzić adras URL 
+    u vyhladzie <a href="/suggest/search engine">http://be-latin.open-tran.eu/suggest/search engine</a>.
+  </li>
+  <li>
+    Karystalniki Firefoksa mohuć dadać zakładku z klučavym 
+    słovam. Kab heta zrabić, uvachodzim u nałady zakładak 
+    i dadajem novuju takim čynam:<br/><br/>
+    <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+    Ad hetaj pary pry kožnym napisańni <code>tran fraza</code> u poli 
+    URL, aŭtamatyčna ŭklučycca pošuk.
+  </li>
+</ol>
+
+<h1>XML RPC</h1>
+<p>
+Servisam možna karystacca pry dapamozie luboj prahramy, zdolnaj vykanać addaleny zahad praz pratakoł XML RPC. Z hetaj metaj treba skarystać metad suggest, jaki apracoŭvaje dva arhumenty: pieršy - heta fraza, jakuju treba pierakłaści, a druhi - heta kod movy, na jakuju maje adbycca pierakład (naprykład "be_latin").
+</p>
+<p>
+U Pythonie heta robicca naprykład tak:
+</p>
+<pre>
+ from xmlrpclib import ServerProxy
+
+ lang = "be-latn" # zamianić na kod vašaj movy
+ server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+ for sugg in server.suggest("save as", lang):
+ print sugg
+</pre>
+<p>
+Nieŭzabavie pastarajusia źmiaścić prosty redaktar fajłaŭ .po, jaki budzie pry dapamozie takoha mechanizmu šukać padkazki pry pierakładach paasobnych fraz. 
+</p>
+

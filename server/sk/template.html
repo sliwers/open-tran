@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Open-Tran.eu - consistency matters</title>
+  <link rel="stylesheet" type="text/css" href="/opentran.css"/>
+  <link rel="icon" type="image/x-ico" href="/favicon.ico">
+  <premium:openSearchLink/>
+  <script language="JavaScript" type="text/javascript" src="/script.js"></script>
+</head>
+
+<body onload="return initialize();">
+    <div id="blue_box"></div>
+
+    <div id="locale">
+      <div id="current_locale">
+	<premium:sifacelang/>
+      </div>
+      <div class="clear"></div>
+      <div id="lang_choice">
+	<div class="close"><a href="javascript:;" onclick="return visibility_switch('lang_choice');">&times;</a></div>
+	<ul>
+	  <premium:ifaceselect/>
+	</ul>
+      </div> <!-- lang_choice -->
+    </div> <!-- locale -->
+  <script language="JavaScript">
+    visibility_switch('lang_choice');
+  </script>
+
+<div id="form_small">
+  <a href="/"><img src="/images/logo-mini.png" alt="open-tran"/></a>
+  <form name="search_form" method="get" action="/suggest" onsubmit="return formsubmit();">
+    <input name="q" maxlength="450" type="text"/>
+    <select name="src" size="1" style="display: inline">
+      <premium:srclang/>
+    </select>
+    <div id="form_lang_switch" style="display: inline">
+      <a href="javascript:;" onclick="return switch_select_indices()">&harr;</a>
+    </div>
+    <select name="dst" size="1">
+      <premium:dstlang/>
+    </select>
+    <input value="Search" type="submit"/>
+    <input value="suggest" type="hidden" name="mode"/>
+  </form>
+</div>
+
+<premium:content/>
+
+  <div id="bottom">
+    <div class="clear"></div>
+    <div id="nav">
+      <div id="global">
+	<ul> 
+	  <li><a href="http://open-tran.blogspot.com">Blog</a></li> 
+	  <li><a href="http://code.google.com/p/open-tran/issues/list">Chyby</a></li>
+	  <li><a href="http://open-tran.eu/dev.html">Vývojári</a></li>
+	  <li><a href="http://open-tran.eu/hof.html">Sieň slávy</a></li>
+	</ul>
+      </div> <!-- global -->
+      <div id="local">
+	<ul> 
+	  <li><a href="/whatfor.html">Čo je to zač?</a></li>
+	  <li><a href="/help.html">Pomocník</a></li> 
+	  <li><a href="/contact.html">Kontakt</a></li>
+	</ul>
+      </div> <!-- local -->
+      <div class="clear"></div>
+    </div> <!-- nav -->
+  </div> <!-- bottom -->
+
+
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-664123-3";
+_udn   = "open-tran.eu";
+urchinTracker();
+</script>
+
+</body>
+</html>

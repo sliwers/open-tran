@@ -1,0 +1,60 @@
+<!--
+    <h1>Översättning av hela filer</h1>
+    <p>
+      Du kan skicka en .po-fil för översättning till servern
+      (tjänsten bygger på
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      och klarar många andra format som stöds av detta bibliotek).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Fil: <input type="file" name="file"/><br/>
+      <input type="submit" value="Översätt"/>
+    </form>
+-->
+    <h1>Översättning av enskilda fraser</h1>
+    <ol>
+      <li>
+        Du kan lägga till en sökmotor (<a href="/suggest/search engine">kolla
+        föreslagna översättningar</a>) i många moderna webbläsare.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Det är ingen hemlighet att sökrutan leder till en URL på
+	följande format:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Firefox-användare kan skapa ett bokmärke med ett nyckelord.  För att
+	göra detta måste man gå till "Ordna bokmärken" i
+        menyn "Bokmärken" och lägga till ett nytt enligt följande:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        Efter detta, ska en URL på formen <code>tran phrase</code>
+	automatiskt sända en sökfråga.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Denna tjänst kan utnyttjas av program som klarar
+      anropa en remote procedure via
+      <a href="http://www.xmlrpc.com">XML RPC</a>-protokollet.
+      Använd metoden <code>suggest</code>, som tar två
+      parametrar: en fras som ska översättas och språkkoden för målspråket.
+    </p>
+    <p>
+      I Python, kan den anropas så här:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Jag hoppas kunna ladda upp en enkel .po-editor inom kort som kan
+      hämta förslag från servern med den här funktionen.
+    </p>

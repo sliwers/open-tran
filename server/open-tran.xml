@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs 
+      title="Open-Tran.eu" 
+      description="Open-Tran.eu - easy access to the translations of open source projects" 
+      height="40" 
+      author="Jacek Śliwerski" 
+      author_affiliation="Open-Tran.eu"
+      author_email="rzyj@o2.pl" 
+      author_location="Warszawa, Poland" 
+      author_link="http://sliwerski.net"
+      author_photo="http://sliwerski.net/img/ja-gnu.png"
+      author_aboutme="Software Developer and Maintainer"
+      author_quote="A charlatan makes obscure what is clear; a thinker makes clear what is obscure - Hugh Kingsmill"
+      screenshot="http://open-tran.eu/images/gadget-shot.png"
+      thumbnail="http://open-tran.eu/images/gadget-thumb.png"
+      title_url="http://open-tran.eu">
+    <Require feature="analytics"/>
+  </ModulePrefs>
+  <UserPref name="src" display_name="From" default_value="" datatype="enum">
+    <EnumValue display_value="Afrikaans" value="af"/>
+    <EnumValue display_value="Albanian" value="sq"/>
+    <EnumValue display_value="Arabic" value="ar"/>
+    <EnumValue display_value="Azerbaijani" value="az"/>
+    <EnumValue display_value="Basque" value="eu"/>
+    <EnumValue display_value="Belarusian" value="be"/>
+    <EnumValue display_value="Belarusian (Latin)" value="be-latin"/>
+    <EnumValue display_value="Bulgarian" value="bg"/>
+    <EnumValue display_value="Bengali" value="bn"/>
+    <EnumValue display_value="Breton" value="br"/>
+    <EnumValue display_value="Bosnian" value="bs"/>
+    <EnumValue display_value="Catalan" value="ca"/>
+    <EnumValue display_value="Chinese Simplified" value="zh-cn"/>
+    <EnumValue display_value="Chinese Hong Kong" value="zh-hk"/>
+    <EnumValue display_value="Chinese Traditional" value="zh-tw"/>
+    <EnumValue display_value="Croatian" value="hr"/>
+    <EnumValue display_value="Czech" value="cs"/>
+    <EnumValue display_value="Danish" value="da"/>
+    <EnumValue display_value="Dutch" value="nl"/>
+    <EnumValue display_value="English" value="en"/>
+    <EnumValue display_value="English (British)" value="en-gb"/>
+    <EnumValue display_value="Esperanto" value="eo"/>
+    <EnumValue display_value="Estonian" value="et"/>
+    <EnumValue display_value="Faroese" value="fo"/>
+    <EnumValue display_value="Finnish" value="fi"/>
+    <EnumValue display_value="French" value="fr"/>
+    <EnumValue display_value="Frisian" value="fy"/>
+    <EnumValue display_value="Galician" value="gl"/>
+    <EnumValue display_value="German" value="de"/>
+    <EnumValue display_value="Georgian" value="ka"/>
+    <EnumValue display_value="Greek" value="el"/>
+    <EnumValue display_value="Hausa" value="ha"/>
+    <EnumValue display_value="Hebrew" value="he"/>
+    <EnumValue display_value="Hindi" value="hi"/>
+    <EnumValue display_value="Hungarian" value="hu"/>
+    <EnumValue display_value="Indonesian" value="id"/>
+    <EnumValue display_value="Icelandic" value="is"/>
+    <EnumValue display_value="Irish" value="ga"/>
+    <EnumValue display_value="Italian" value="it"/>
+    <EnumValue display_value="Japanese" value="ja"/>
+    <EnumValue display_value="Kashubian" value="csb"/>
+    <EnumValue display_value="Kazakh" value="kk"/>
+    <EnumValue display_value="Khmer" value="km"/>
+    <EnumValue display_value="Kinyarwanda" value="rw"/>
+    <EnumValue display_value="Korean" value="ko"/>
+    <EnumValue display_value="Kurdish" value="ku"/>
+    <EnumValue display_value="Lao" value="lo"/>
+    <EnumValue display_value="Latvian" value="lv"/>
+    <EnumValue display_value="Lithuanian" value="lt"/>
+    <EnumValue display_value="Low Saxon" value="nds"/>
+    <EnumValue display_value="Luxembourgish" value="lb"/>
+    <EnumValue display_value="Macedonian" value="mk"/>
+    <EnumValue display_value="Malagasy" value="mg"/>
+    <EnumValue display_value="Malay" value="ms"/>
+    <EnumValue display_value="Maori" value="mi"/>
+    <EnumValue display_value="Maltese" value="mt"/>
+    <EnumValue display_value="Mongolian" value="mn"/>
+    <EnumValue display_value="Nepali" value="ne"/>
+    <EnumValue display_value="Northern Sami" value="se"/>
+    <EnumValue display_value="Norwegian Bokmål" value="nb"/>
+    <EnumValue display_value="Norwegian Nynorsk" value="nn"/>
+    <EnumValue display_value="Occitan" value="oc"/>
+    <EnumValue display_value="Persian" value="fa"/>
+    <EnumValue display_value="Polish" value="pl"/>
+    <EnumValue display_value="Portuguese" value="pt"/>
+    <EnumValue display_value="Portuguese (Brazilian)" value="pt-br"/>
+    <EnumValue display_value="Punjabi" value="pa"/>
+    <EnumValue display_value="Romanian" value="ro"/>
+    <EnumValue display_value="Russian" value="ru"/>
+    <EnumValue display_value="Serbian" value="sr"/>
+    <EnumValue display_value="Serbian (Latin)" value="sr-latn"/>
+    <EnumValue display_value="Slovak" value="sk"/>
+    <EnumValue display_value="Slovenian" value="sl"/>
+    <EnumValue display_value="Spanish" value="es"/>
+    <EnumValue display_value="Swati" value="ss"/>
+    <EnumValue display_value="Swedish" value="sv"/>
+    <EnumValue display_value="Tatar" value="tt"/>
+    <EnumValue display_value="Tamil" value="ta"/>
+    <EnumValue display_value="Tajik" value="tg"/>
+    <EnumValue display_value="Telugu" value="te"/>
+    <EnumValue display_value="Thai" value="th"/>
+    <EnumValue display_value="Turkish" value="tr"/>
+    <EnumValue display_value="Ukrainian" value="uk"/>
+    <EnumValue display_value="Uzbek" value="uz"/>
+    <EnumValue display_value="Venda" value="ven"/>
+    <EnumValue display_value="Vietnamese" value="vi"/>
+    <EnumValue display_value="Waloon" value="wa"/>
+    <EnumValue display_value="Xhoan" value="xh"/>
+    <EnumValue display_value="Upper Sorbian" value="hsb"/>
+    <EnumValue display_value="Welsh" value="cy"/>
+    <EnumValue display_value="Zulu" value="zu"/>
+  </UserPref> 
+  <UserPref name="dst" display_name="To" default_value="" datatype="enum">
+    <EnumValue display_value="Afrikaans" value="af"/>
+    <EnumValue display_value="Albanian" value="sq"/>
+    <EnumValue display_value="Arabic" value="ar"/>
+    <EnumValue display_value="Azerbaijani" value="az"/>
+    <EnumValue display_value="Basque" value="eu"/>
+    <EnumValue display_value="Belarusian" value="be"/>
+    <EnumValue display_value="Belarusian (Latin)" value="be-latin"/>
+    <EnumValue display_value="Bulgarian" value="bg"/>
+    <EnumValue display_value="Bengali" value="bn"/>
+    <EnumValue display_value="Breton" value="br"/>
+    <EnumValue display_value="Bosnian" value="bs"/>
+    <EnumValue display_value="Catalan" value="ca"/>
+    <EnumValue display_value="Chinese Simplified" value="zh-cn"/>
+    <EnumValue display_value="Chinese Hong Kong" value="zh-hk"/>
+    <EnumValue display_value="Chinese Traditional" value="zh-tw"/>
+    <EnumValue display_value="Croatian" value="hr"/>
+    <EnumValue display_value="Czech" value="cs"/>
+    <EnumValue display_value="Danish" value="da"/>
+    <EnumValue display_value="Dutch" value="nl"/>
+    <EnumValue display_value="English" value="en"/>
+    <EnumValue display_value="English (British)" value="en-gb"/>
+    <EnumValue display_value="Esperanto" value="eo"/>
+    <EnumValue display_value="Estonian" value="et"/>
+    <EnumValue display_value="Faroese" value="fo"/>
+    <EnumValue display_value="Finnish" value="fi"/>
+    <EnumValue display_value="French" value="fr"/>
+    <EnumValue display_value="Frisian" value="fy"/>
+    <EnumValue display_value="Galician" value="gl"/>
+    <EnumValue display_value="German" value="de"/>
+    <EnumValue display_value="Georgian" value="ka"/>
+    <EnumValue display_value="Greek" value="el"/>
+    <EnumValue display_value="Hausa" value="ha"/>
+    <EnumValue display_value="Hebrew" value="he"/>
+    <EnumValue display_value="Hindi" value="hi"/>
+    <EnumValue display_value="Hungarian" value="hu"/>
+    <EnumValue display_value="Indonesian" value="id"/>
+    <EnumValue display_value="Icelandic" value="is"/>
+    <EnumValue display_value="Irish" value="ga"/>
+    <EnumValue display_value="Italian" value="it"/>
+    <EnumValue display_value="Japanese" value="ja"/>
+    <EnumValue display_value="Kashubian" value="csb"/>
+    <EnumValue display_value="Kazakh" value="kk"/>
+    <EnumValue display_value="Khmer" value="km"/>
+    <EnumValue display_value="Kinyarwanda" value="rw"/>
+    <EnumValue display_value="Korean" value="ko"/>
+    <EnumValue display_value="Kurdish" value="ku"/>
+    <EnumValue display_value="Lao" value="lo"/>
+    <EnumValue display_value="Latvian" value="lv"/>
+    <EnumValue display_value="Lithuanian" value="lt"/>
+    <EnumValue display_value="Low Saxon" value="nds"/>
+    <EnumValue display_value="Luxembourgish" value="lb"/>
+    <EnumValue display_value="Macedonian" value="mk"/>
+    <EnumValue display_value="Malagasy" value="mg"/>
+    <EnumValue display_value="Malay" value="ms"/>
+    <EnumValue display_value="Maori" value="mi"/>
+    <EnumValue display_value="Maltese" value="mt"/>
+    <EnumValue display_value="Mongolian" value="mn"/>
+    <EnumValue display_value="Nepali" value="ne"/>
+    <EnumValue display_value="Northern Sami" value="se"/>
+    <EnumValue display_value="Norwegian Bokmål" value="nb"/>
+    <EnumValue display_value="Norwegian Nynorsk" value="nn"/>
+    <EnumValue display_value="Occitan" value="oc"/>
+    <EnumValue display_value="Persian" value="fa"/>
+    <EnumValue display_value="Polish" value="pl"/>
+    <EnumValue display_value="Portuguese" value="pt"/>
+    <EnumValue display_value="Portuguese (Brazilian)" value="pt-br"/>
+    <EnumValue display_value="Punjabi" value="pa"/>
+    <EnumValue display_value="Romanian" value="ro"/>
+    <EnumValue display_value="Russian" value="ru"/>
+    <EnumValue display_value="Serbian" value="sr"/>
+    <EnumValue display_value="Serbian (Latin)" value="sr-latn"/>
+    <EnumValue display_value="Slovak" value="sk"/>
+    <EnumValue display_value="Slovenian" value="sl"/>
+    <EnumValue display_value="Spanish" value="es"/>
+    <EnumValue display_value="Swati" value="ss"/>
+    <EnumValue display_value="Swedish" value="sv"/>
+    <EnumValue display_value="Tatar" value="tt"/>
+    <EnumValue display_value="Tamil" value="ta"/>
+    <EnumValue display_value="Tajik" value="tg"/>
+    <EnumValue display_value="Telugu" value="te"/>
+    <EnumValue display_value="Thai" value="th"/>
+    <EnumValue display_value="Turkish" value="tr"/>
+    <EnumValue display_value="Ukrainian" value="uk"/>
+    <EnumValue display_value="Uzbek" value="uz"/>
+    <EnumValue display_value="Venda" value="ven"/>
+    <EnumValue display_value="Vietnamese" value="vi"/>
+    <EnumValue display_value="Waloon" value="wa"/>
+    <EnumValue display_value="Xhoan" value="xh"/>
+    <EnumValue display_value="Upper Sorbian" value="hsb"/>
+    <EnumValue display_value="Welsh" value="cy"/>
+    <EnumValue display_value="Zulu" value="zu"/>
+  </UserPref> 
+<Content type="html"><![CDATA[
+<script>
+function displaySearchBar (prefs) {
+     var src = prefs.getString("src");
+     if (src == "") {
+       src = prefs.getString(".src");
+     }
+     if (src == "") {
+       src = "en";
+     }
+     var dst = prefs.getString("dst");
+     if (dst == "") {
+       dst = prefs.getString(".dst");
+     }
+     var html =
+         '<form target="_parent" name="search_form" method="get"' +
+              ' action="http://' + src + '.' + dst + '.open-tran.eu/suggest"' +
+              ' onsubmit="return formsubmit();">' +
+	   '<input type="text" name="q" maxlength="450" />' +
+	   '<input type="submit" value="Translate" />' +
+         '<form>';
+     document.write(html);
+}
+   displaySearchBar(new _IG_Prefs(__MODULE_ID__));
+   _IG_Analytics("UA-664123-3", "/google-gadget");
+</script>
+ ]]>
+</Content>
+</Module>

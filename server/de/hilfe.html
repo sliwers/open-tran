@@ -1,0 +1,50 @@
+<!--
+    <h1>Übersetzung von ganzen Dateien</h1>
+    <p>
+      Mit Hilfe dieses Formulars kann man an den Server eine .po-Datei zur Übersetzung senden (dieser Service basiert auf dem <a
+      href="http://translate.sourceforge.net">translate toolkit</a>
+     und erkennt alle durch diese Bibliothek unterstützten Formate).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Datei: <input type="file" name="file"/><br/>
+      <input type="submit" value="Los!"/>
+    </form>
+-->
+    <h1>Übersetzung von einzelnen Phrasen</h1>
+    <ol>
+      <li>
+        Ein search engine (<a href="/suggest/search engine">schau Dir mal die vorgeschlagenen Übersetzungen an</a>) kann in allen modernen Browsern hinzugefügt werden. 
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Es ist natürlich kein Geheimnis, dass das Suchfenster einfach die Adresse in folgender Form eingibt: 
+        <a href="/suggest/search engine">http://de.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Die Firefox-Nutzer können bei ihrem Browser ein Lesezeichen mit Schlüsselwort einbinden. Dafür geht man über 'Lesezeichen -> Lesezeichen bearbeiten' in die Verwaltung und fügt ein neues Lesezeichen hinzu:<br/><br/>
+        <img src="images/addbookmark-de.png" alt="screenshot"/><br/><br/>
+        Jetzt braucht man in der Adresszeile nur noch <code>tran
+        Phrase</code> einzugeben, um die Suche zu starten.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Um den Service zu nutzen, benötigt man einfach ein Programm, das die entfernten Funktionsaufrufe über das <a href="http://www.xmlrpc.com">XML RPC-Protokoll</a> ermöglicht.  Dafür sollte man die <code>suggest</code> Methode verwenden, die zwei Argumente nimmt: das erste ist die zu übersetzende Phrase und das zweite - das zweibuchstabige Kürzel der Sprache, in die die Phrase übersetzt werden sollte (also "de" für das Deutsche).
+    </p>
+    <p>
+      Zum Beispiel in Python macht man dies wie folgt:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "de"):
+          print sugg
+    </pre>
+    <p>
+      In nächster Zeit werde ich versuchen, hier einen einfachen Editor der .po-Dateien zu platzieren, der die Übersetzungsvorschläge mit Hilfe des oben aufgeführten Mechanismus abruft.
+    </p>
+

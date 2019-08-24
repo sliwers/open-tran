@@ -1,0 +1,50 @@
+    <h1>Tłumaczenie pojedynczych fraz</h1>
+    <ol>
+      <li>
+        Do nowoczesnych przeglądarek można sobie dodać search engine 
+        (<a href="/suggest/search engine">sprawdź 
+        proponowane tłumaczenia</a>).
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Oczywiście żadna to tajemnica, że okienko wyszukiwania po
+        prostu wprowadza adres w postaci 
+        <a href="/suggest/search engine">http://pl.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Użytkownicy Firefoksa mogą sobie dodać zakładkę ze słowem
+        kluczowym.  Wchodzimy w tym celu w zarządzanie zakładkami i
+        dodajemy nową w ten sposób:<br/><br/>
+        <img src="/images/addbookmark-pl.png" alt="screenshot"/><br/><br/>
+        Od tej pory każdorazowe wpisanie adresu w postaci <code>tran
+        fraza</code> spowoduje automatyczne wywołanie szukania.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Z serwisu można korzystać dowolnym programem, który potrafi
+      wykonać zdalne wywołanie przez protokół 
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Należy w tym celu
+      skorzystać z metody <code>suggest</code>, która pobiera dwa
+      argumenty: pierwszy to fraza do tłumaczenia, a drugi to
+      dwuliterowy kod języka, na który ma zostać przełożona (dla języka
+      polskiego - "pl").
+    </p>
+    <p>
+      W Pythonie robi się to na przykład tak:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "pl"):
+          print sugg
+    </pre>
+    <p>
+      Wkrótce postaram się umieścić prosty edytorek plików .po, który
+      będzie przy pomocy tego mechanizmu pobierał podpowiedzi
+      tłumaczeń poszczególnych fraz.
+    </p>

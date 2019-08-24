@@ -1,0 +1,61 @@
+<!--
+    <h1>Translating Whole Files</h1>
+    <p>
+      You can submit a .po file for translation to the server (the
+      service is based on the 
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      and understands many other formats supported by this library).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Translate"/>
+    </form>
+-->
+    <h1>Përkthim Togfjalëshash Si Një e Tërë</h1>
+    <ol>
+      <li>
+        Mund të shtoni një motor kërkimesh (<a href="/suggest/search engine">shihni
+        përkthimet e këshilluar</a>) te cilido shfletues modern web.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Nuk përbën ndonjë sekret që formulari i kërkimeve jep një URL nën
+	formatin vijues:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Përdoruesit e Firefox-it mund të shtojnë një faqerojtës me një fjalëkyç.  Për ta bërë këtë
+	dikujt i duhet të hapë dritaren "Sistemoni Faqerojtësit" prej menusë
+        "Faqerojtës" dhe të shtojë një të ri, si më poshtë:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        Tani, duke dhënë një URL në formën <code>togfjalësh për përkthim</code> do të parashtrohet
+	vetvetiu një kërkesë.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Këtë shërbim mund ta përdorni me cilindo program që është i aftë
+      të thërrasë një procedurë në largësi përmes protokollit
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Do të duhej të përdornit
+      metodën <code>suggest</code>, që pranon dy
+      argumenta: një togfjalësh për t'u përkthyer dhe kodin e gjuhës për të cilën synohet
+      përkthimi.
+    </p>
+    <p>
+      Në Python, mund ta përdorni në mënyrën e mëposhtme:
+    </p>
+    <pre>
+      prej xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # zëvendësojeni me kodin e gjuhës suaj
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Së shpejti do të përpiqem të jap një përpunues të thjeshtë për kartelat .po, i cili do të jetë
+      në gjendje të sjellë këshillime prej shërbyesash që përdorin këtë mekanizëm.
+    </p>

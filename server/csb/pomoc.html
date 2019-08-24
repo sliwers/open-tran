@@ -1,0 +1,51 @@
+<!--
+    <h1>Dolmaczënk całownëch lopków</h1>
+    <p>
+      Brëkùjąc fòrmularza niżi mòże wësłac na serwerã lopk .po do dolmaczëniô (serwis òpiarti je na <a
+      href="http://translate.sourceforge.net">translate toolkit</a>
+      ë òbsłëdżiwùje wszëtczé fòrmatë wspieróné bez tã bibliotekã).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Lopk: <input type="file" name="file"/><br/>
+      <input type="submit" value="Dolmaczë"/>
+    </form>
+-->
+    <h1>Dolmaczënk pòjedińczëch frazów</h1>
+    <ol>
+      <li>
+        Do mòdernëch przezérników mòże dodac search engine 
+        (<a href="/suggest/search engine">sprôwdzë bédowóné dolmaczënczi</a>).
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Gwësno to niżódnô krajemnota, że òczénkò szëkbë prosto wprowôdzô adresã w sztaturze
+        <a href="/suggest/search engine">http://csb.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Brëkòwnice Firefoksa mògą dodac załóżkã z kluczowim słowã. Żebë to zrobic, nót je wlezc w sprôwianié załóżkama ë dodac nową na nen ôrt:<br/><br/>
+        <img src="images/addbookmark-pl.png" alt="screenshot"/><br/><br/>
+        Òd terô pòwtôrzné kòżdą razą wpisanié adresë w sztaturze <code>tran
+        fraza</code> sprawi aùtomatné wëwòłanié szëkbë.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Z serwisu mòże brëkòwac równojaką programą, co rozmie robic daleczé wëwòłanié przez protokół 
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Nót je w tim célu zwënégòwac metodã <code>suggest</code>, jaka pòbiérô dwa argùmentë: pierszi to fraza dlô dolmaczënkù, a drëdżi to dwa- abò trzëlëterowi kòd jãzëka, na jaczi mô òstac przedolmaczonô.
+    </p>
+    <p>
+      W Pythonie robi sã to na przëmiôr tak:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "csb"):
+          print sugg
+    </pre>
+    <p>
+      Wnetka dóm prosti editork lopków .po, jaczi mdze brëkùjąc nen werk pòbiérôł pòdpòwiescë dolmaczënków apartnëch frazów.
+    </p>

@@ -1,0 +1,49 @@
+<!--
+    <h1>Oversætning af filer</h1>
+    <p>
+      Du kan sende en .po file der skal oversættes til serveren (servicen er baseret på 
+      <a href="http://translate.sourceforge.net/">translate toolkit</a>
+      og understøtter mange andre formater som er supporteret af dette "library").
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input name="file" type="file"><br>
+      <input value="Oversæt" type="submit">
+    </form>
+-->
+    <h1>Oversætning af sætninger</h1>
+    <ol>
+      <li>
+        Du kan tilføje en søgemaskine (<a href="/suggest/search%20engine">checke foreslåede oversættelser</a>) i hvilken som helst moderne browser.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Det er ingen hemmelighed at søge formularen benytter en URL med dette format:
+	<a href="/suggest/search%20engine">http://da.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Firefox brugere kan tilføje et bogmærke med et nøgleord.  For at gøre dette skal man vælge "Arranger Bogmærker" i "Bogmærker" menuen og tilføje et nyt bogmærke som her:<br><br>
+        <img src="images/addbookmark-en.png" alt="screenshot"><br><br>
+        Nu vil der ved at taste en URL i denne form <code>tran phrase</code> automatisk blive igangsat en søgning.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Du kan benytte denne service i ethvert program der er i stand til at lave en "remote procedure" via
+      <a href="http://www.xmlrpc.com/">XML RPC</a> protokollen.  Du skal bruge denne metode <code>suggest</code>, som tager to argumenter: en sætning og en kode for destinationssproget.
+    </p>
+    <p>
+      I Python, kan du bruge følgende metode:
+    </p>
+    <pre>      
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "da"):
+          print sugg
+    </pre>
+    <p>
+      Jeg vil forsøge at uploade en simpel  .po editor i nærmeste fremtid som vil være i stand til at hente forslag fra serveren med denne metode.
+    </p>

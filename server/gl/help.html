@@ -1,0 +1,63 @@
+<!--
+<h1>Traduci&oacute;n de ficheiros</h1>
+    <p>
+      Mediante o campo de entrada en baixo pode enviar ficheiros .po ao
+      servidor para que este os traduza (o servizo est&aacute; baseado no 
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      e admite todos os formatos que manexa esta biblioteca).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Ficheiro: <input type="file" name="file"/><br/>
+      <input type="submit" value="Traducir"/>
+    </form>
+-->
+<h1>Traduci&oacute;n de frases soltas</h1>
+    <ol>
+      <li>
+        Pode engadir un motor de procuras (<a
+        href="/suggest/search engine">consulte as suxesti&oacute;ns de
+        traduci&oacute;n</a>) en calquer navegador moderno.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Non &eacute; neng&uacute;n segredo que o formulario de procura dirixe
+        a un URL co seguinte formato: <a
+        href="/suggest/search engine">http://gl.open-tran.eu/suggest/search
+engine</a>.
+      </li>
+      <li>
+        Os usuarios de Firefox poden engadir un marcador cunha
+        palabra-chave. Para facer isto debe abrir a fiestra "Organizar
+        Marcadores" no men&uacute; "Marcadores" e engadir un novo do seguinte
+        xeito:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        Agora, se escrebe un URL da forma <code>tran frase</code> far&aacute;
+        automaticamente unha pesquisa.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Pode usar este servizo con calquer programa que sexa capaz de activar 
+      un procedimento remoto mediante o protocolo
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Debe usar o m&eacute;todo 
+      <code>suggest</code>, que toma dous argumentos: unha frase a
+      traducir e o c&oacute;digo da lingua de destino.
+    </p>
+    <p>
+Con Python, pode us&aacute;lo do seguinte xeito:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "gl" # substit&uacute;ao co c&oacute;digo do seu idioma
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Hei tentar facer un editor simples de ficheiros .po que sexa capaz de
+      obter suxesti&oacute;ns desde o servidor mediante este sistema.
+    </p>

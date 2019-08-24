@@ -1,0 +1,52 @@
+<!--
+    <h1>ترجمة ملفات كاملة</h1>
+    <p>
+	  بإمكانك أن ترسل ملف يحمل امتداد .po إلى الخادم لترجمته
+	  (تعتمد هذه الخدمة على<a href="http://translate.sourceforge.net"> حزمة أدوات الترجمة</a> و يمكن للخدمة التعامل مع هيئات أخرى مِن الملفاتا المدعومة مِن قِبل الحزمة)
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      الملف: <input type="file" name="file"/><br/>
+      <input type="submit" value="Translate"/>
+    </form>
+-->
+    <div dir="rtl">
+    <h1>ترجمة عبارات منفصلة</h1>
+    <ol>
+      <li>
+        بإمكانك إضافة محرّك بحث (<a href="/suggest/search engine">ألقِ نظرةً على الترجمات المقترحة</a>) لأي متصفّح حديث للإنترنت..
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+      ليس مِن الصعب صياغة عنوان إنترنت للبحث في محرّك البحث كما في الصيغة التالية:
+	<a href="/suggest/search engine">http://ar.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+      	بإمكان مستخدمي FireFox إضافة علامة موقع للصفحة تتضمّن كلمات بحث مفتاحيّة. حتى تتمكّن مِن ذلك فإن عليك أن تفتح نافذة "تنظيم علامات المواقع" مِن قائمة "علامات المواقع" ثم تضيف علامة موقع جديدة كما يظهر في الشكل 
+		أدناه:<br/><br/>
+        <img src="images/addbookmark-ar.png" alt="screenshot"/><br/><br/>
+        و الآن يمكنك كتابة العنوان في شريط الموقع بصيغة <code>ترجم عبارة</code> بحيث تكون العبارة باللغة الإنجليزية، فيقوم المتصفح بالبحث تلقائيّاً عن ترجمة تلك العبارة بالعربية.
+      </li>
+    </ol>
+
+
+    <h1>بروتوكول استدعاء الإجراءات عن بعد XML RPC</h1>
+    <p>
+      بإمكانك استخدام هذه الخدمة عن طريق أي برنامج قادر على استدعاء الإجراءات البرمجية عن بعد عن طريق بروتوكول
+      <a href="http://www.xmlrpc.com">XML RPC</a>. عليك أن تستخدِم إجراء <code>suggest</code>، و الذي يأخد معيارين: العبارة المطلوب ترجمتها و رمز اللغة المراد الترجمة إليها.
+    </p>
+    <p>
+    	يمكنك تطبيق ذلك بلغة Python كما يلي:
+    </p>
+    <pre dir="ltr">
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      سوف أعمل قريياً على رفع محرّر بسيط لملفات .po يكون بإمكانه جلب الاقتراحات مِن الخادم باستخدام هذه الطريقة.
+    </p>
+    </div>

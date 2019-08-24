@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head profile="http://www.netvibes.com/api/0.3/profile">
+  <title>Open-Tran.eu</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="http://www.netvibes.com/api/0.3/style.css" />
+  <script type="text/javascript" src="http://www.netvibes.com/api/0.3/emulation.js"></script>
+  <script language="JavaScript" type="text/javascript">
+    <!--
+    function formsubmit(){
+      location.href = "/suggest/" + document.search_form.q.value;
+      return false;
+    }
+    -->
+  </script>
+</head>
+<body>
+    <form method="get" action="/suggest">
+      <fieldset>
+	<label for="q">Phrase</label>
+	<input type="text" name="q" />
+	<input type="submit" value="Translate" />
+      </fieldset>
+    </form>
+</body>
+</html>

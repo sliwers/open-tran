@@ -1,0 +1,59 @@
+<!--
+    <h1>Переклад цілих файлів</h1>
+    <p>
+      Можете надіслати цілий файл .po для перекладу на сервері (службу базовано на 
+      <a href="http://translate.sourceforge.net">наборі засобів для перекладу</a>, і
+      вона розуміє багато інших форматів, що підтримуються цією бібліотекою).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Файл: <input type="file" name="file"/><br/>
+      <input type="submit" value="Перекласти"/>
+    </form>
+-->
+    <h1>Переклад окремих фраз</h1>
+    <ol>
+      <li>
+        Ви можете додати пошуковий рушій (<a href="/suggest/search engine">перегляньте
+ запропоновані переклади</a>) до будь-якого сучасного навігатора.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Це не секрет, що форма пошуку вводить адресу URL в
+	наступному форматі:
+	<a href="/suggest/search engine">http://uk.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Користувачі Firefox можуть додати закладку з ключовим словом.  Щоб це зробити,
+	потрібно відкрити вікно "Упорядкувати закладки" з меню
+        "Закладки" і додати нову закладку як показано:<br/><br/>
+        <img src="images/addbookmark-uk.png" alt="screenshot"/><br/><br/>
+        Введення <code>tran фраза</code> в панель адреси URL 
+	автоматично передасть запит пошуку.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Цією службою можна користуватись з будь-якої програми, яка здатна
+      викликати віддалену процедуру через протокол
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Потрібно вживати метод
+      <code>suggest</code>, який приймає два аргументи:
+      фразу, яку потрібно перекласти, і код мови, на яку проводиться переклад.
+    </p>
+    <p>
+      В Python це можна втілити наступним чином:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "uk" # змініть на код вашої мови
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Незабаром, я постараюсь вивантажити простий редактор .po, який буде спроможний
+      отримувати пропозиції з сервера за допомогою цього механізму.
+    </p>

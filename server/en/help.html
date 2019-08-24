@@ -1,0 +1,61 @@
+<!--
+    <h1>Translating Whole Files</h1>
+    <p>
+      You can submit a .po file for translation to the server (the
+      service is based on the 
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      and understands many other formats supported by this library).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Translate"/>
+    </form>
+-->
+    <h1>Translating Single Phrases</h1>
+    <ol>
+      <li>
+        You can add a search engine (<a href="/suggest/search engine">check out
+        suggested translations</a>) to any modern web browser.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        It's not a secret that the search form enters a URL of the
+	following format:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Firefox users may add a bookmark with a keyword.  In order to
+	do this one needs to open the "Organize Bookmarks" window from
+        the "Bookmarks" menu and add a new one as follows:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        Now, entering a URL of the form <code>tran phrase</code> will
+	automatically submit a search query.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      You can use this service with any program that is capable of
+      calling a remote procedure via the
+      <a href="http://www.xmlrpc.com">XML RPC</a> protocol.  You
+      should use the method <code>suggest</code>, which takes two
+      arguments: a phrase to be translated and a destination language
+      code.
+    </p>
+    <p>
+      In Python, you can use it in the following way:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      I will try to upload a simple .po editor soon that will be able
+      to fetch suggestions from the server using this mechanism.
+    </p>

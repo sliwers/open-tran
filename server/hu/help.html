@@ -1,0 +1,41 @@
+    <h1>Egyszerű szavak fordítása</h1>
+    <ol>
+      <li>
+        Minden modern böngésző lehetővé teszi új keresőszolgáltatások (<a href="/suggest/search engine">fordítási javaslatok</a>) hozzáadását.</li>
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      <li>
+        Nem titok, hogy a keresés a következők alapján történik:
+	<a href="/suggest/search engine">http://hu.open-tran.eu/search/search engine</a>.</li>
+      <li>
+        A Firefox felhasználók adott kulcsszót tartalmazó új könyvjelző hozzáadásával tehetik ezt meg. Megteheti ezt Ön is.
+	Nyissa meg a "Könyvjelzőkezelő" ablakot a
+        "Könyvjelzők" menüből és hozzon létre egy új könyvjelzőt az alábbiak szerint:<br/><br/>
+        <img src="images/addbookmark-hu.png" alt="kép"/><br/>
+        <br/>
+        Már csak a <code>tran</code> kulcsszó megadása marad hátra, hogy a keresés elkezdődjön.</li>
+    </ol>
+
+
+<h1>XML RPC</h1>
+    <p>
+      Használhatja ezt a szolgáltatást bármilyen alkalmazással, amely képes
+      távoli eljárások hívására a
+      <a href="http://www.xmlrpc.com">XML RPC</a> protokol segítségével.  Használja
+      a <code>suggest</code> módszert, amely két paramétert tartalmaz: 
+      a fordítani kívánt szót és a célnyelv kódját.
+    </p>
+    <p>
+      Python esetében használja a következő képpen:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # írja felül a saját nyelvének megfelelő kóddal
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      A közeljövőben feltöltünk egy egyszerű .po szerkesztőt, ami lehetővé teszi a javaslatok átvételét a szerverről az előző módszer segítségével.
+    </p>

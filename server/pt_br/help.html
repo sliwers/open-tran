@@ -1,0 +1,59 @@
+<!--
+    <h1>Translating Whole Files</h1>
+    <p>
+      You can submit a .po file for translation to the server (the
+      service is based on the 
+      <a href="http://translate.sourceforge.net">translate toolkit</a>
+      and understands many other formats supported by this library).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Translate"/>
+    </form>
+-->
+    <h1>Traduzindo Frases Simples</h1>
+    <ol>
+      <li>
+        Você pode adicionar um motor de pesquisas (<a href="/suggest/search engine">dê uma olhada
+        nas traduções sugeridas</a>) a qualquer navegador web moderno.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        Não é segredo que o formulário de pesquisas usa um URL do seguinte formato:
+	<a href="/suggest/search engine">http://pt-br.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Usuários do Firefox podem adicionar um marcador com uma palavra-chave. Para fazer isso
+	é necessário abrir a janela "Organizar Marcadores" do
+        menu "Marcadores" e adicione um novo da seguinte forma:<br/><br/>
+        <img src="images/addbookmark-pt_br.png" alt="screenshot"/><br/><br/>
+        Agora, digitando um URL no formato <code>tran frase</code> irá
+	automaticamente enviar a consulta de pesquisa.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      Você pode usar este serviço com qualquer programa capaz de
+      chamar um procedimento remoto pelo protocolo
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  Você deveria usar
+      o método <code>suggest</code>, que aceita dois
+      argumentos: uma frase para ser traduzida e o código do idioma para traduzir.
+    </p>
+    <p>
+      Em Python, você pode usar da seguinte forma:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Eu vou tentar enviar um editor de .po simples em breve que será capaz
+      de buscar sugestões do servidor usando este mecanismo.
+    </p>

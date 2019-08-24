@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 30px 0;
+    background: #26A;
+    color: #222;
+}
+
+#container {
+    width: 780px;
+    margin: 0 auto;
+    padding: 0;
+    background: #fff;
+    color: #222;
+}
+
+#header h1 {
+    color: #FFF;
+}
+
+#nav img {
+    border: 1px solid #DDD;
+}
+
+#nav {
+    float: right;
+}
+
+#nav ul {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul li {
+    display: inline;
+}
+
+
+#global {
+    text-align: right;
+    background-color: #fff;
+    padding: 10px 0 10px 0;
+}
+
+#global li a {
+    margin: 0;
+    border-bottom: 5px solid #1958b7;
+    border-top: 5px solid #508fc4;
+    background-color: #2175bc;
+    padding: 5px 5px 5px 5px;
+    text-decoration: none;
+    color: #fff;
+}
+
+#global li a:hover {
+    border-bottom: 5px solid #1c64d1;
+    border-top: 5px solid #5ba3e0;
+    background-color: #2586d7;
+    color: #fff;
+}
+
+#local {
+    text-align: right;
+    padding: 10px 10px 10px 10px;
+}
+
+#local ul li:after {
+    content: "\0020 \00A4 \0020"; 
+}
+
+#local ul li.last:after {
+    content: "";
+}
+
+#header {
+    padding: 0 1em 0 1em;
+    background: #26A;
+    float: left;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+#lang_choice {
+    clear: both;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    background: #DDD;
+}
+
+#lang_choice ul {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+#lang_choice ul li {
+    padding: 0 3px 0 3px;
+    display: inline;
+    font-size:0.9em;
+}
+
+#lang_choice img {
+    border: 1px solid #DDD;
+}
+
+#form select {
+    width: 20%;
+    height: 1.7em;
+}
+
+#footer{
+    margin: 0 auto 20px auto;
+    background: #fff;
+    padding:0 0 5px 0;
+    font-size:0.9em;
+    color:#888;
+    text-align:center;
+}
+
+#text {
+    padding: 0 20px 0 20px;
+}
+
+#fuzzy {
+    font-size: 0.7em;
+    color: #888;
+}
+
+#fuzzy a {
+    color: #7AD;
+}
+
+a {
+	color: #58B;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #234;
+	text-decoration: underline;
+}
+
+a.jslink:hover {
+	text-decoration: none;
+	border-bottom: 1px dotted #0000FF;
+}
+
+#text img{
+	border: none;
+}
+
+th {
+    text-align: left;
+}
+
+.clear {
+    padding: 10px 10px 10px 10px;
+    clear: both;
+    margin: 0;
+}
+
+.yellow {
+    background: #ff0;
+}

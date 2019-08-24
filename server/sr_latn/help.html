@@ -1,0 +1,38 @@
+﻿    <h1>Prevođenje pojedinačnih rečenica</h1>
+    <ol>
+      <li>
+        Možete da dodate pretraživač (<a href="/suggest/search engine">pogledajte
+        predložene prevode</a>) u bilo koji moderni pregledač.<br/><br/>
+        <img src="images/open-search-sr_latn.png" alt="screenshot"/><br/><br/>
+      </li>
+      <li>
+        Nije tajna da adresa pretraživača izgleda kao:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Korisnici fajerfoksa mogu dodati zabelešku za ključnom reči. Da biste to uradili, otvorite meni „Zabeleške“ i izaberite stavku „Uredi zabeleške...“, pa dodajte sledeće:<br/><br/>
+        <img src="images/addbookmark-sr_latn.png" alt="screenshot"/><br/><br/>
+        Sada ćete unošenjem adrese u obrazac <code>tran phrase</code> automatski ubaciti pretragu.
+      </li>
+    </ol>
+
+
+<h1>XML RPC</h1>
+    <p>
+      Ovu uslugu možete da koristite s bilo kojim programom koji može pozivati daljinsku proceduru preko
+<a href="http://www.xmlrpc.com">XML RPC</a> protokola.  Trebali biste da koristite metod  <code>suggest</code>, koji koristi dva argumenta: rečenicu za prevođenje i kôd jezika. </p>
+<p>
+  U pitonu koristite na sledeći način:
+</p>
+    <pre>
+      iz xmlrpclib uvezite ServerProxy
+
+      lang = &quot;sr_RS&quot; # zamenite s kodom svog jezika
+      server = ServerProxy(„<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>“)
+      za „sugg“ u server.suggest(&quot;save as&quot;, lang):
+          odštampaj sugg
+    </pre>
+    <p>
+      Pokušaću da uskoro pošaljem jednostavni .po uređivač koji će moći
+      da podvlači predloge sa poslužitelja koristeći ovaj mehanizam.
+    </p>

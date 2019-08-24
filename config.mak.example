@@ -1,0 +1,15 @@
+# -*- Makefile -*-
+# This is an example config.mak file. Please, copy it as config.mak
+# and adjust the settings to your needs.
+
+Q = @
+
+PYTHON = /usr/include/python2.4
+SQLITE = /home/sliwers/dl/soft/build
+
+CFLAGS = -O3
+#CFLAGS = -O0 -ggdb
+
+DEFINES = 
+#DEFINES = -DXMALLOC_DEBUG -DXMALLOC_DEPTH=4
+

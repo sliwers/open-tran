@@ -1,0 +1,9 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <premium:searchShortName/>
+  <Description>Open-Tran.eu // consistency matters</Description>
+  <InputEncoding>utf-8</InputEncoding>
+  <Image width="16" height="16">http://open-tran.eu/favicon.ico</Image>
+  <Url type="text/html" method="GET" 
+       <premium:searchTemplateURL/>
+  />
+</OpenSearchDescription>

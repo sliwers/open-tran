@@ -1,0 +1,46 @@
+    <h1>תרגום מונחים בודדים</h1>
+    <ol>
+      <li>
+        תוכל להוסיף מנוע חיפוש (<a href="/suggest/search engine">בדוק את
+        התרגומים המוצעים</a>) לכל דפדפן אינטרנט מודרני.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        זהו אינו סוד שטופס החיפוש מזין כתובת במבנה הבא:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        משתמשי פיירפוקס יכולים להוסיף סימניה עם מילת מפתח. על
+           מנת לעשות זאת יש לפתוח את חלון "סידור הסימניות"
+        מתפריט ה-"סימניות" ולהוסיף אחת חדשה כדלקמן:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        כעת, הזנת כתובת מהצורה <code>תרג מונח</code> תשלח
+	שאילתת חיפוש אוטומטית.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      תוכל להשתמש בשירות זה עם כל תוכנית המסוגלת לקרוא
+      להליך מרוחק דרך פרוטוקול ה-
+      <a href="http://www.xmlrpc.com">XML RPC</a>.  עליך
+      להשתמש בשיטת ה<code>הצעה</code>, הלוקחת שני
+      משתנים: מונח לתרגום ואת קוד שפת היעד.
+    </p>
+    <p>
+      ב-Python, תוכל להשתמש בדרך הבאה:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "he" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      אני אנסה להעלות עורך .po פשוט ברגע שאוכל לקבל
+      הצעות מהשרת באמצעות מנגנון זה.
+    </p>

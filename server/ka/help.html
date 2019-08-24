@@ -1,0 +1,60 @@
+<!--
+    <h1>მთლიანი ფაილის თარგმნა</h1>
+    <p>
+	შესაძლებელია სათარგმნი .po ფაილის სერვერზე ატვირთვა (თარგმნის 
+	სერვისი დაფუძნებულია ბიბლიოთეკა <a href="http://translate.sourceforge.net">translate toolkit</a>-ზე, 
+	ამასთანავე, სერვისს ბევრი სხვა ფორმატების მხარდაჭერაც გააჩნია). 
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Translate"/>
+    </form>
+-->
+
+<h1>ცალკეული წინადადების თარგმნა</h1>
+    <ol>
+      <li>
+	ყველა თანამედროვე ბრაუზერზე (<a href="http://ka.open-tran.eu/suggest/search engine">შემოთავაზებული
+	თარგმანის ნახვა</a>) შესაძლებელია საძიებო სისტემის დამატება.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+	არ არის საიდუმლო რომ ძიება ხერხდება შემდეგი ფორმის URL ფორმატით:
+	<a href="http://ka.open-tran.eu/suggest/search engine">http://ka.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+	Firefox-ის მომხმარებლებს შეუძლიათ საკვანძო სიტყვის მქონე სანიშნის
+	დამატება. ამისათვის გახსენით ფანჯარა "სანიშნეთა ორგანიზება", "სანიშნეები"-ს
+	მენუდან და დაამატეთ შემდეგი ინფორმაცია, ქვემოთ მოცემული სურათის მიხედვით:<br/><br/>
+        <img src="images/addbookmark-ka.png" alt="screenshot"/><br/><br/>
+        სცადეთ მენუს ზოლში <code>tran search engine</code> შეყვანა, სისტემა ავტომატურად
+	მოძებნის ქართულ შესატყვისს.<br/><br/>
+        <img src="images/browser.png" alt="screenshot"/><br/><br/>
+	  
+      </li>
+    </ol>
+
+
+<h1>XML RPC</h1>
+    <p>
+	ამ სერვისის გამოყენება შესაძლებელია ყველა იმ პროგრამასთან, რომელსაც 
+	<a href="http://www.xmlrpc.com">XML RPC</a> პროტოკოლის მეშვეობით დაშორებული 
+	პროცედურების გამოძახება შეუძლია. გამოიყენეთ მეთოდი <code>suggest</code> რომელიც იღებს
+	ორ არგუმენტს: სათარგმნ წინადადებას და ენის კოდს.
+    </p>
+    <p>
+      <a href="http://ka.wikipedia.org/wiki/%E1%83%9E%E1%83%98%E1%83%97%E1%83%9D%E1%83%9C%E1%83%98_(%E1%83%9E%E1%83%A0%E1%83%9D%E1%83%92%E1%83%A0%E1%83%90%E1%83%9B%E1%83%98%E1%83%A0%E1%83%94%E1%83%91%E1%83%98%E1%83%A1_%E1%83%94%E1%83%9C%E1%83%90)">პითონში</a> ყოველივე ამის გამოყენება ხდება ამდაგვარად:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # replace with your language code
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+	სულ მალე შევეცდები მარტივი .po ფაილების რედაქტორის ატვირთვას, რომელიც
+	ზემოთ მოცემულ ტექნოლოგიას გამოიყენებს.
+    </p>

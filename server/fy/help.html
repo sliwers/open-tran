@@ -1,0 +1,49 @@
+<!--
+    <h1>It oersetten fan folsleine triemmen</h1>
+    <p>
+      Jo kinne de tsjinner in po-triem oanbiede om oer te setten (de tsjinst is basearre op de      <a href="http://translate.sourceforge.net">translation toolkit</a>
+      en hy stipet ek in soad oare formaten).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      Triem: <input type="file" name="file"/><br/>
+      <input type="submit" value="Oersette"/>
+    </form>
+-->
+    <h1>It oersetten fan losse sinnen</h1>
+    <ol>
+      <li>
+        Jo kinne in sykmasine (<a href="/suggest/search engine">kar út foarstelde oersettings</a>) oan eltse moderne webblêder taheakje.
+	<br/>
+	<img src="/images/open-search.png" alt="Open Search"/>
+      </li>
+      <li>
+        It sykformulier wurdt ynfierd fia in URL mei it folgjende formaat:
+	<a href="/suggest/search engine">http://fy.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Firefox-brûkers kinne in blêdwizer mei in kaaiwurd taheakje. Dêrfoar iepenje jo it finster "Organize Bookmarks" fan it menu "Bookmarks" en heakje de blêdwizer sa ta:<br/><br/>
+        <img src="images/addbookmark-en.png" alt="screenshot"/><br/><br/>
+        As jo no it formulier <code>tran phrase</code> fia de URL ynfiere wurdt de sykfraach automatysk oanbean.
+      </li>
+    </ol>
+
+<h1>XML RPC</h1>
+    <p>
+      Jo kinne dizze tsjinst brûke by alle programma's dy't ynsteat binne in remote-proseduere op te roppen fia it   <a href="http://www.xmlrpc.com">XML RPC</a> foarskrift.  Jo moatte de metoade <code>suggest</code> brûke, dy't twa arguminten freget: in sin om oer te setten en de winske taalkoade.
+    </p>
+    <p>
+      Yn Python kinne jo it sa brûke:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", "fy"):
+          print sugg
+    </pre>
+    <p>
+      Ik sil besykje gau in ienfâldige po-tekstbewurker op it Web te laden dy't ynsteat is om fia sa'n mechanisme suggestjes fan de tsjinner te heljen.
+    </p>
+
+
+  

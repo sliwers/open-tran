@@ -1,0 +1,394 @@
+<h1>Developers</h1>
+<p>
+  This page is dedicated to all developers that would like to help us
+  develop the service, create new tools or integrate it in the existing
+  software.
+</p>
+
+<h2>Contents</h2>
+<ol>
+  <li><a href="#API">API Introduction</a>
+    <ol>
+      <li><a href="#Suggestion">Suggestions</a></li>
+      <li><a href="#Projects">Projects</a></li>
+      <li><a href="#Example">Example</a></li>
+    </ol>
+  </li>
+  <li><a href="#JS">JSON API</a></li>
+  <li><a href="#XML-RPC">XML-RPC API</a>
+    <ol>
+      <li><a href="#Python">Python</a></li>
+      <li><a href="#C">C</a></li>
+      <li><a href="#Java">Java</a></li>
+    </ol>
+  </li>
+  <li><a href="#Offline">Off-line mode</a>
+    <ol>
+      <li><a href="#Installing">Installing</a></li>
+      <li><a href="#Database">Database</a></li>
+      <li><a href="#Algorithm">Algorithm</a></li>
+    </ol>
+  </li>
+</ol>
+
+<a name="API"></a>
+<h2>API Introduction</h2>
+<p>
+  Open-Tran.eu has been providing an API since its inception in
+  February, 2007.  This section tries to describe the fundamental
+  concepts and illustrate them with an example.
+</p>
+
+<a name="Suggestion"></a>
+<h3>Suggestions</h3>
+<p>
+  Whenever translation suggestions are requested, the
+  server prepares the result as a set of objects.  These objects are
+  then either rendered in HTML (if the request came from user's
+  browser) or serialized into JSON or XML.  However they wouldn't be
+  sent, every suggestion in the list have the same set of fields
+  described below.
+</p>
+<ul class="hof">
+  <li><b>text</b>: <i>string</i> is the suggested translation in the
+    destination language</li>
+  <li><b>value</b>: <i>integer</i> is the numeric value assigned to this
+    suggestion; the lower the number, the more accurate the
+    suggestion is</li>
+  <li><b>count</b>: <i>integer</i> is the number of total occurences of
+    this phrase accross all projects; it is equal to the sum of the
+    counts on the <b>projects</b> list</li>
+  <li><b>projects</b>: <i>list</i> is a list of projects containing this
+    phrase as a translation; for every possible combination of phrase
+    in the source language and input file, an object with the
+    following fields is provided:
+    <ul>
+      <li><b>orig_phrase</b>: <i>string</i> is the phrase in the
+	source language</li>
+      <li><b>path</b>: <i>string</i> is the name of the file that
+	contains the relevant translation (see 
+	<a href="#Example">example</a> for details)</li>
+      <li><b>name</b>: <i>string</i> is the name of the project
+	(e.g. GNOME, Mozilla, etc.)</li>
+      <li><b>count</b>: <i>integer</i> is the number of occurences of
+	the <b>orig_phrase</b> in the <b>path</b></li>
+      <li><b>flags</b>: <i>integer</i> is either 0 (meaning nothing)
+	or 1 (meaning that this translation is fuzzy)</li>
+    </ul>
+  </li>
+</ul>
+
+<a name="Projects"></a>
+<h3>Projects</h3>
+<p>
+  Every <a href="/projects.html">project</a> within Open-Tran is
+  identified with a single-letter code.  Furthermore, Open-Tran hosts
+  the icons used to identify the projects.  Below is a table of the
+  projects and their codes and icons.
+</p>
+<table>
+  <tr><th>Code</th><th>Name</th><th>Icon</th></tr>
+  <tr><td>A</td><td>Mandriva</td>
+    <td><a href="/images/mandriva-logo.png">/images/mandriva-logo.png</a></td>
+  </tr>
+  <tr><td>D</td><td>Debian Installer</td>
+    <td><a href="/images/debian-logo.png">/images/debian-logo.png</a></td>
+  </tr>
+  <tr><td>F</td><td>Cor Jousma</td>
+    <td><a href="/images/pompelyts.png">/images/pompelyts.png</a></td>
+  </tr>
+  <tr><td>G</td><td>GNOME</td>
+    <td><a href="/images/gnome-logo.png">/images/gnome-logo.png</a></td>
+  </tr>
+  <tr><td>I</td><td>Inkscape</td>
+    <td><a href="/images/inkscape-logo.png">/images/inkscape-logo.png</a></td>
+  </tr>
+  <tr><td>K</td><td>KDE</td>
+    <td><a href="/images/kde-logo.png">/images/kde-logo.png</a></td>
+  </tr>
+  <tr><td>M</td><td>Mozilla</td>
+    <td><a href="/images/mozilla-logo.png">/images/mozilla-logo.png</a></td>
+  </tr>
+  <tr><td>O</td><td>OpenOffice.org</td>
+    <td><a href="/images/oo-logo.png">/images/oo-logo.png</a></td>
+  </tr>
+  <tr><td>R</td><td>Fedora</td>
+    <td><a href="/images/fedora-logo.png">/images/fedora-logo.png</a></td>
+  </tr>
+  <tr><td>S</td><td>openSUSE</td>
+    <td><a href="/images/suse-logo.png">/images/suse-logo.png</a></td>
+  </tr>
+  <tr><td>X</td><td>XFCE</td>
+    <td><a href="/images/xfce-logo.png">/images/xfce-logo.png</a></td>
+  </tr>
+</table>
+<p>
+  Notice that some of the logos might be copyrighted and their use
+  might be restricted.  Open-Tran hosts them in order to make sure
+  that they are always available from the same location and in order
+  to avoid so-called hot-linking.
+</p>
+
+
+<a name="Example"></a>
+<h3>Example</h3>
+<p>
+  As an example, consider the excerpt of the results from
+  <a href="http://en.es.open-tran.eu/suggest/file">http://en.es.open-tran.eu/suggest/file</a>:<br/>
+  <img src="/images/api-example.png" alt="API example"/><br/>
+  Notice, that different spellings of the word <em>archivo</em> are
+  separated from each other.  Every distinctive spelling is a separate
+  suggestion.  So let us first dive into the marked suggestions:
+</p>
+<ol>
+  <li><em>archivo %S</em>
+    <ul>
+      <li>text = "archivo %S"</li>
+      <li>value = 1</li>
+      <li>count = 1</li>
+      <li>projects = 
+	<ol>
+	  <li>
+	    <ul>
+	      <li>orig_phrase = "%S file"</li>
+	      <li>path = "M/preferences.properties"</li>
+	      <li>name = "Mozilla"</li>
+	      <li>count = 1</li>
+	      <li>flags = 0</li>
+	    </ul>
+	  </li>
+	</ol>
+    </ul>
+  </li>
+  <li><em>Tipo de archivo</em>
+    <ul>
+      <li>text = "Tipo de archivo"</li>
+      <li>value = 2</li>
+      <li>count = 14</li>
+      <li>projects = 
+	<ol>
+	  <li>
+	    <ul>
+	      <li>orig_phrase = "File Type"</li>
+	      <li>path = "G/gnome-commander"</li>
+	      <li>name = "GNOME"</li>
+	      <li>count = 8</li>
+	      <li>flags = 0</li>
+	    </ul>
+	  </li>
+	  <li>
+	    <ul>
+	      <li>orig_phrase = "File type"</li>
+	      <li>path = "K/amarok"</li>
+	      <li>name = "KDE"</li>
+	      <li>count = 6</li>
+	      <li>flags = 0</li>
+	    </ul>
+	  </li>
+	</ol>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<a name="JS"></a>
+<h2>JSON API</h2>
+<p>
+  You can fetch the suggestions in
+  the <a href="http://json.com">JSON</a> format by requesting the
+  results from a URL in the format exemplified here:
+</p>
+<pre>
+  <a href="http://en.es.open-tran.eu/json/suggest/file">http://en.es.open-tran.eu/json/suggest/file</a>
+</pre>
+<p>
+  The above URL requests that the server provides suggestions of
+  translations of the word <tt>file</tt> from English into Spanish.
+  In response, the server sends a list with the suggestions.  Every
+  suggestion is an object described in <a href="/RPC2">the
+  documentation of the XML-RPC calls</a>.  You may also refer to a
+  <a href="/save_as.js">commented excerpt</a> of an output for the
+  request 
+  <a href="http://en.id.open-tran.eu/json/suggest/save as">http://en.id.open-tran.eu/json/suggest/save as</a>.
+</p>
+<p>
+  Additionally, you can fetch a list of all supported language codes
+  by requesting the URL:
+</p>
+<pre>
+  <a href="/json/supported">http://open-tran.eu/json/supported</a>
+</pre>
+
+
+<a name="XML-RPC"></a>
+<h2>XML-RPC API</h2>
+<p>
+  The interface is exported through
+  the <a href="http://www.xmlrpc.com">XML-RPC</a> protocol.
+  You can fetch the suggestions from the server using your
+  own software by sending a request to the server and fetching an
+  XML response with the results.  The following link will take you
+  to <a href="/RPC2">the documentation of all exported
+  functions</a>.  An example response from the server (for the
+  execution of <tt>suggest("save as", "pl")</tt> is here:
+  <a href="save_as.xml">save_as.xml</a>.
+</p>
+<p>
+  Below is the list of programming languages with code snippets (or
+  links to such) that give an example of how to access the Open-Tran
+  service with it.
+</p>
+
+<a name="Python"></a>
+<h3>Python</h3>
+<p>
+  Below is an example of a very simple python script that searches for
+  translations of the phrase "<em>save as</em>" from English to
+  Brazilian Portugese.
+</p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_br" # replace with your language code
+      server = ServerProxy("http://open-tran.eu/RPC2")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+
+<a name="C"></a>
+<h3>C</h3>
+<p>
+  Ignacio Casal Quinteiro contributed
+  an <a href="http://bugzilla.gnome.org/attachment.cgi?id=101873">example
+    implementation in C</a>.
+</p>
+
+<a name="Java"></a>
+<h3>Java</h3>
+<p>
+  Yves Savourel contributed an example implementation in Java.
+</p>
+<pre>
+  import org.apache.xmlrpc.XmlRpcException;
+  import org.apache.xmlrpc.client.XmlRpcClient;
+  import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
+
+  public void queryOpenTran (String textToQuery,
+	String sourceLanguage,
+	String targetLanguage)
+  {
+  	try {
+		// Setup the XML-RPC client
+		XmlRpcClient client;
+		XmlRpcClientConfigImpl config = new XmlRpcClientConfigImpl();
+		config.setServerURL(new URL("http://open-tran.eu/RPC2"));
+		client = new XmlRpcClient();
+		client.setConfig(config);
+			
+		// Prepare the query parameters
+		Object[] params = new Object[] {
+			new String(textToQuery),
+			new String(sourceLanguage),
+			new String(targetLanguage)};
+		// Execute the query
+		Object[] results = (Object[])client.execute("suggest2", params);
+		
+		// Parse the result back
+		StringBuilder tmp = new StringBuilder();
+		for ( Object obj1 : results ) {
+			tmp.setLength(0);
+			Map<String, Object> map1 = (Map<String, Object>)obj1;
+			tmp.append(String.format("Translation=\"%s\"", (String)map1.get("text")));
+			tmp.append(String.format(", value=%d", (Integer)map1.get("value")));
+			tmp.append(String.format(", count=%d", (Integer)map1.get("count")));
+			Object[] projects = (Object[])map1.get("projects");
+			for ( Object obj2 : projects ) {
+				Map<String, Object> map2 = (Map<String, Object>)obj2;
+				tmp.append(String.format("\nProject: name=", (String)map2.get("name"))); 
+				tmp.append(String.format("\n  original=\"%s\"", (String)map2.get("orig_phrase")));
+				tmp.append(String.format("\n  flags=%d", (Integer)map2.get("flags")));
+				tmp.append(String.format("\n  path=%s", (String)map2.get("path")));
+				tmp.append(String.format("\n  count=%d", (Integer)map2.get("count")));
+			}
+			System.out.println(tmp.toString());
+		}
+		
+	}
+	catch ( Throwable e ) {
+		e.printStackTrace();
+	}
+  }
+</pre>
+
+<a name="Offline"></a>
+<h2>Off-line mode</h2>
+<p>
+  Since June, 2008 it is possible to use the Open-Tran service in an
+  off-line mode.  Once the user downloads the databases, she may query
+  it localy.  The off-line access has one important advantage: it
+  returns the results almost instantly.
+</p>
+
+<a name="Installing"></a>
+<h3>Installing</h3>
+<p>
+  First, go to our FTP site
+  at <a href="ftp://open-tran.eu">ftp://open-tran.eu</a> and download
+  two databases: an English one
+  (currently: <a href="ftp://open-tran.eu/ten-en.db">ftp://open-tran.eu/ten-en.db</a>)
+  and one for your language (for
+  example: <a href="ftp://open-tran.eu/ten-pt_br.db">ftp://open-tran.eu/ten-pt_br.db</a>
+  for Brazilian Portuguese).  The databases have to be stored (or
+  symlinked) in the <tt>.open-tran</tt> directory in the user's home
+  directory.
+</p>
+<p>
+  You will also need to download the software
+  from <a href="ftp://open-tran.eu/open-tran-latest.tar.gz">ftp://open-tran.eu/open-tran-latest.tar.gz</a>.
+  Currently, there are two tools in the tarball:
+</p>
+<ol>
+<li><tt>suggest.py</tt> is a console script that may be run like
+  this: <tt>suggest.py "save as" es</tt></li>
+<li><tt>open-tran.py</tt> is a GTK-based GUI tool that has never
+  really been completed.  I thought that I would be able to create a
+  po-editor within few hours but it turned out to be a wrong
+  assumption :)</li> 
+</ol>
+
+
+<a name="Database"></a>
+<h3>Database</h3>
+<p>
+  Open-Tran stores the phrases
+  in <a href="http://sqlite.org">SQLite3</a> databases.  Below is the
+  diagram depicting the current database schema.  You can find the SQL
+  for it 
+  <a href="http://code.google.com/p/open-tran/source/browse/trunk/import/step2.sql?r=180">in
+  the repository</a>.<br/>
+  <img src="/images/db-ten.png" alt="database diagram" width="100%"/><br/>
+  The field <tt>length</tt> in the table <tt>Phrases</tt> holds
+  the number of words in the phrase and there is currently only
+  one <tt>flag</tt>: value 1 indicates that the translation is fuzzy.
+</p>
+
+
+<a name="Algorithm"></a>
+<h3>Algorithm</h3>
+<p>
+  Open-Tran first tries to find the most similar phrase in the
+  original language.  In order to do that, we compute the number of
+  words that are not in the intersection of the phrases.  The lower
+  the number, the better.  As an example consider the following
+  situation: we are looking for the phrase <tt>"do you really want to
+  save"</tt>.  Let's consider the following candidates:
+</p>
+  <table>
+    <tr><th>candidate</th><th>score</th></tr>
+    <tr><td>do you really want to <span class="yellow">quit</span></td><td>2 (quit, save)</td></tr>
+    <tr><td>save <span class="yellow">what</span> you want</td><td>3 (what, do, really)</td>
+  </table>
+<p>
+  Once we find the best matches, we locate their translations via
+  their <tt>locationid</tt>.
+</p>

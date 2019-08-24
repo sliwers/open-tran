@@ -1,0 +1,56 @@
+<!--
+    <h1>Prevajanje celotnih datotek</h1>
+    <p>
+      Na strežnik lahko pošljete datoteko .po za prevod (storitev temelji na
+      <a href="http://translate.sourceforge.net">translate toolkitu</a> in razume
+      številne druge vrste podprte v tej knjižnici).
+    </p>
+    <form enctype="multipart/form-data" action="suggest" method="post">
+      File: <input type="file" name="file"/><br/>
+      <input type="submit" value="Prevedi"/>
+    </form>
+-->
+    <h1>Prevodi besednih zvez</h1>
+    <ol>
+      <li>
+        V vsak novejši brskalnik lahko dodate iskalnik (<a href="/suggest/search engine">oglejte si
+        priporočene prevode</a>).
+	<br/>
+	<img src="/images/open-search.png" alt="Odprite iskanje"/>
+      </li>
+      <li>
+        Ni skrivnost, da iskalni obrazec pridobi spletni naslov v naslednji obliki:
+	<a href="/suggest/search engine">http://xx.open-tran.eu/suggest/search engine</a>.
+      </li>
+      <li>
+        Uporabniki Firefoxa lahko dodajo zaznamek s ključno besedo. Za to odprite
+	okno upravljanja zaznamkov iz menija Zaznamki in dodajte nov vnos:<br/><br/>
+        <img src="images/addbookmark-sl.png" alt="posnetek zaslona"/><br/><br/>
+        Sedaj lahko vnesete spletni naslov v obliki <code>tran besedna zveza</code>, pritisnete Enter
+	in prevod besedne zveze bo samodejno poiskan.
+      </li>
+    </ol>
+
+
+    <h1>XML RPC</h1>
+    <p>
+      To storitev lahko uporabite s katerimkoli programom, ki zmore poklicati oddaljen postopek
+      preko protokola <a href="http://www.xmlrpc.com">XML RPC</a>. Uporabiti morate
+      način <code>suggest</code>, ki sprejme dva argumenta: besedno zvezo, ki bi naj bila
+      prevedena in kodo ciljnega jezika.
+    </p>
+    <p>
+      V Pythonu jo lahko uporabite na naslednji način:
+    </p>
+    <pre>
+      from xmlrpclib import ServerProxy
+
+      lang = "pt_BR" # zamenjajte s kodo ciljnega jezika
+      server = ServerProxy("<a href="http://open-tran.eu/RPC2">http://open-tran.eu/RPC2</a>")
+      for sugg in server.suggest("save as", lang):
+          print sugg
+    </pre>
+    <p>
+      Kmalu bom poskusil objaviti preprost urejevalnik datotek .po, ki bo zmogel pridobiti predloge
+      iz strežnika z uporabo tega mehanizma.
+    </p>
