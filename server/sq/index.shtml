@@ -36,7 +36,7 @@
   <form name="search_form" method="get" action="/suggest" onsubmit="return formsubmit();">                                 
     <div id="form_mode">
       <ul>
-	<li><a href="javascript:;" onclick="return set_mode('suggest');" id="form_mode_suggest">Këshilloni</a></li>
+	<li><a href="javascript:;" onclick="return set_mode('suggest');" id="form_mode_suggest">Sugjeroni</a></li>
 	<li><a href="javascript:;" onclick="return set_mode('compare');" id="form_mode_compare">Krahasoni</a></li>
       </ul>
     </div>
